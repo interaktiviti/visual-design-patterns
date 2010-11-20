@@ -1,0 +1,18 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".txt" #>
+<#@ Desi processor="DesiDirectiveProcessor" requires="fileName='Sample.des'" #>
+
+Generated material. Generating code in C#.
+
+<#
+  // When you change the DSL Definition, some of the code below may not work.
+
+  foreach (DesignPattern element in this.Design.DesignPatterns)
+  {
+#>
+	namespace <#= element.Name #>
+	{
+	}
+<#    
+  }
+#>

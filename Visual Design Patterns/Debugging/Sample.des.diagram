@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<desiDiagram dslVersion="1.0.0.0" Id="a8771118-3529-4928-bbcb-1e91d980075b" absoluteBounds="0, 0, 11, 8.5" name="Sample">
+  <designMoniker Id="9b380318-5e75-408a-91c8-3e7025390713" />
+  <nestedChildShapes>
+    <designPatternShape Id="7637f261-4063-4631-9b6a-ca9858c7b2fe" absoluteBounds="1.125, 0.75, 5, 3.375">
+      <designPatternMoniker name="/9b380318-5e75-408a-91c8-3e7025390713/Abstract Factory" />
+    </designPatternShape>
+    <abstractClassShape Id="bd5e2379-8bf1-42b3-a1c5-514cd6b6a71c" absoluteBounds="1.375, 0.875, 2.5, 2.125">
+      <abstractClassMoniker name="/9b380318-5e75-408a-91c8-3e7025390713/Abstract Factory/AbstractClass1" />
+    </abstractClassShape>
+    <abstractClassShape Id="157712b1-6d1e-4fe5-af63-476ac9bd8849" absoluteBounds="4.125, 0.875, 1.5, 1">
+      <abstractClassMoniker name="/9b380318-5e75-408a-91c8-3e7025390713/Abstract Factory/AbstractClass2" />
+    </abstractClassShape>
+  </nestedChildShapes>
+</desiDiagram>

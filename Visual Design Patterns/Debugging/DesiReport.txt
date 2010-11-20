@@ -1,0 +1,6 @@
+﻿
+Generated material. Generating code in C#.
+
+	namespace Abstract Factory
+	{
+	}

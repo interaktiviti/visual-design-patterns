@@ -1,0 +1,16 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<Name Package="{f8a64ea5-4c0f-4711-b312-2e617c9389c4}" ID="103"/>
+		<Description Package="{f8a64ea5-4c0f-4711-b312-2e617c9389c4}" ID="102"/>
+		<Icon Package="{f8a64ea5-4c0f-4711-b312-2e617c9389c4}" ID="201" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>Desi.des</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.des">des.des</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.des.diagram">des.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+

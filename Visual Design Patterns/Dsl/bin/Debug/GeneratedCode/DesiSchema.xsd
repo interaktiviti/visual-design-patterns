@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema id="DesiSchema" targetNamespace="http://schemas.microsoft.com/dsltools/Desi" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/dsltools/Desi" xmlns:core="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import id="CoreSchema" namespace="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" />
+  <!-- Design -->
+  <xsd:element name="design" type="Design" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Design">
+    <xsd:annotation>
+      <xsd:documentation>The root in which all other elements are embedded. Appears as a diagram.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: DesignHasDesignPatterns -->
+          <xsd:element name="designPatterns" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of DesignHasDesignPatterns</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+                  <xsd:element ref="designHasDesignPatterns">
+                    <xsd:annotation>
+                      <xsd:documentation>[Relationship deriving from DesignHasDesignPatterns needs to be serialized in full-form]</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element ref="designPattern" >
+                    <xsd:annotation>
+                      <xsd:documentation>[Target role-player]</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:choice>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- dslVersion -->
+        <xsd:attribute name="dslVersion" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Version of the model serialized in this file.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Design Moniker -->
+  <xsd:element name="designMoniker" type="DesignMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="DesignMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Design instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DesignPattern -->
+  <xsd:element name="designPattern" type="DesignPattern" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="DesignPattern">
+    <xsd:annotation>
+      <xsd:documentation>Elements embedded in the model. Appear as boxes on the diagram.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: DesignPatternHasAbstractClasses -->
+          <xsd:element name="abstractClasses" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of DesignPatternHasAbstractClasses</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="designPatternHasAbstractClasses" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of DesignPatternHasAbstractClasses needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: DesignPatternHasConcreteClasses -->
+          <xsd:element name="concreteClasses" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of DesignPatternHasConcreteClasses</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="designPatternHasConcreteClasses" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of DesignPatternHasConcreteClasses needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+        <!-- Property: Classification -->
+        <xsd:attribute name="classification" type="PatternClassification" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DesignPattern Moniker -->
+  <xsd:element name="designPatternMoniker" type="DesignPatternMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="DesignPatternMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DesignPattern instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="name" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- AbstractClass -->
+  <xsd:element name="abstractClass" type="AbstractClass" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="AbstractClass">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- AbstractClass Moniker -->
+  <xsd:element name="abstractClassMoniker" type="AbstractClassMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="AbstractClassMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for AbstractClass instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="name" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConcreteClass -->
+  <xsd:element name="concreteClass" type="ConcreteClass" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ConcreteClass">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ConcreteClass Moniker -->
+  <xsd:element name="concreteClassMoniker" type="ConcreteClassMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConcreteClassMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ConcreteClass instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="name" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DesignHasDesignPatterns -->
+  <xsd:element name="designHasDesignPatterns" abstract="true" type="DesignHasDesignPatterns" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="DesignHasDesignPatterns" abstract="true" >
+    <xsd:annotation>
+      <xsd:documentation>Embedding relationship between the Model and Elements</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end DesignPattern -->
+          <xsd:element ref="designPattern" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DesignHasDesignPatterns Moniker -->
+  <xsd:element name="designHasDesignPatternsMoniker" type="DesignHasDesignPatternsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="DesignHasDesignPatternsMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DesignHasDesignPatterns instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DesignPatternHasAbstractClasses -->
+  <xsd:element name="designPatternHasAbstractClasses" type="DesignPatternHasAbstractClasses" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="DesignPatternHasAbstractClasses">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end AbstractClass -->
+          <xsd:element ref="abstractClass" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DesignPatternHasAbstractClasses Moniker -->
+  <xsd:element name="designPatternHasAbstractClassesMoniker" type="DesignPatternHasAbstractClassesMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="DesignPatternHasAbstractClassesMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DesignPatternHasAbstractClasses instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DesignPatternHasConcreteClasses -->
+  <xsd:element name="designPatternHasConcreteClasses" type="DesignPatternHasConcreteClasses" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="DesignPatternHasConcreteClasses">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end ConcreteClass -->
+          <xsd:element ref="concreteClass" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DesignPatternHasConcreteClasses Moniker -->
+  <xsd:element name="designPatternHasConcreteClassesMoniker" type="DesignPatternHasConcreteClassesMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="DesignPatternHasConcreteClassesMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DesignPatternHasConcreteClasses instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Enum PatternClassification -->
+  <xsd:simpleType name="PatternClassification">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Creational"/>
+      <xsd:enumeration value="Structural"/>
+      <xsd:enumeration value="Behavioral"/>
+      <xsd:enumeration value="Concurrency"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+</xsd:schema>
+

@@ -1,0 +1,8 @@
+E:\Users\Shirish Goyal\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Shirish Goyal\Desi\1.0.0.0\ItemTemplates\CSharp\1033\\Desi.zip
+E:\Users\Shirish Goyal\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Shirish Goyal\Desi\1.0.0.0\ItemTemplates\VisualBasic\1033\\Desi.zip
+E:\Users\Shirish Goyal\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Shirish Goyal\Desi\1.0.0.0\\VisualDesignPatterns.DslPackage.dll
+E:\Users\Shirish Goyal\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Shirish Goyal\Desi\1.0.0.0\\VisualDesignPatterns.Dsl.dll
+E:\Users\Shirish Goyal\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Shirish Goyal\Desi\1.0.0.0\\VisualDesignPatterns.DslPackage.pkgdef
+E:\Users\Shirish Goyal\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Shirish Goyal\Desi\1.0.0.0\\extension.vsixmanifest
+E:\Users\Shirish Goyal\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Shirish Goyal\Desi\1.0.0.0\\VisualDesignPatterns.DslPackage.pdb
+E:\Users\Shirish Goyal\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Shirish Goyal\Desi\1.0.0.0\\VisualDesignPatterns.Dsl.pdb

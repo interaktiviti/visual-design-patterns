@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<design xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="9b380318-5e75-408a-91c8-3e7025390713" xmlns="http://schemas.microsoft.com/dsltools/Desi">
+  <designPatterns>
+    <designPattern Id="6b6d95e3-3f97-4598-a3ab-a233c823951a" name="Abstract Factory" classification="Creational">
+      <abstractClasses>
+        <designPatternHasAbstractClasses Id="1d1e9b7c-e84d-4822-b047-39dd07c70af9">
+          <abstractClass Id="e072d3d6-d5fc-4272-a677-e36ca07c7496" name="AbstractClass1" />
+        </designPatternHasAbstractClasses>
+        <designPatternHasAbstractClasses Id="802e5e66-1f44-43cc-83c9-6ad8c901c49e">
+          <abstractClass Id="6aebb081-40f9-42c1-bae3-56d70b511812" name="AbstractClass2" />
+        </designPatternHasAbstractClasses>
+      </abstractClasses>
+    </designPattern>
+  </designPatterns>
+</design>

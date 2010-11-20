@@ -1,0 +1,2 @@
+E:\Users\Shirish Goyal\Documents\Visual Studio 2010\Templates\ItemTemplates\CSharp\1033\Desi.zip
+E:\Users\Shirish Goyal\Documents\Visual Studio 2010\Templates\ItemTemplates\VisualBasic\1033\Desi.zip
